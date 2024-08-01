@@ -1,0 +1,12 @@
+{
+  "name": "habanos",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "main": "node main.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5"
+  }
+}
