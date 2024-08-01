@@ -32,18 +32,23 @@ for (let index = start; index < end; index += 5) {
   const ip = randomIp();
 
   const url = `${apiUrl}?checkInfo=${serial},${ip},${myCountry}`;
-  const response = await axios.get(url, { headers });
-  const { data } = response;
-  const { description, hsa } = data;
+  try {
+    const response = await axios.get(url, { headers });
+    const { data } = response;
+    const { description, hsa } = data;
 
-  if (description && hsa) {
-    const desp = description.replace(/(\r\n|\n|\r)/gm, '');
-    const content = `${serial},${desp}`;
-    logger.write(`${content}\n`);
-    console.log(`${content}`);
-  } else {
-    logger.write(`${serial},No product\n`);
-    console.warn(`${serial}:no description`);
+    if (description && hsa) {
+      const desp = description.replace(/(\r\n|\n|\r)/gm, '');
+      const content = `${serial},${desp}`;
+      logger.write(`${content}\n`);
+      console.log(`${content}`);
+    } else {
+      logger.write(`${serial},No product\n`);
+      console.log(`${serial}:no description`);
+    }
+  } catch (err) {
+    logger.write(`${serial},Server error\n`);
+    console.error(`${serial}:server error`);
   }
 }
 
