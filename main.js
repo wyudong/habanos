@@ -17,9 +17,8 @@ if (!args[0]) {
   console.log('missing start index');
   exit(1);
 }
-const delta = args[1] ? args[1] : 1000000;
 const start = parseInt(args[0]);
-const end = start + delta;
+const end = args[1] ? args[1] : 62000000;
 const myCountry = 'Germany';
 
 const outputFile = `${start}.csv`;
