@@ -44,7 +44,7 @@ for (let index = start; index <= end; index += 5) {
       console.log(`${content}`);
     } else {
       logger.write(`${serial},No product\n`);
-      console.log(`${serial}:no description`);
+      console.log(`${serial}:no product`);
     }
   } catch (err) {
     logger.write(`${serial},Server error\n`);
