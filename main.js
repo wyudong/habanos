@@ -27,7 +27,7 @@ const logger = fs.createWriteStream(outputFile, {
 });
 logger.write('serial,product\n');
 
-for (let index = start; index < end; index += 5) {
+for (let index = start; index <= end; index += 5) {
   const serial = serialNum(index);
   const ip = randomIp();
 
